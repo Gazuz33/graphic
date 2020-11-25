@@ -80,7 +80,7 @@ public class GornerTableModel extends AbstractTableModel {
                 return "Значение многочлена";
             default:
 // Название 3-го столбца
-                return "Малое ли число";
+                return "Является ли полным квадратом?";
         }
     }
     public Class<?> getColumnClass(int col) {
