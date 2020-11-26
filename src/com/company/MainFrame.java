@@ -29,7 +29,7 @@ import javax.swing.JTextField;
 
 public class MainFrame extends JFrame {
     // Константы с исходным размером окна приложения
-    private static final int WIDTH = 700;
+    private static final int WIDTH = 1000;
     private static final int HEIGHT = 500;
 
     // Массив коэффициентов многочлена

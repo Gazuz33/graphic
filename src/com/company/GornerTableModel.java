@@ -56,16 +56,20 @@ public class GornerTableModel extends AbstractTableModel {
                 {
                     result = result * x + coefficients[i + 1];
                 }
-                String temp = Double.toString(result);
-                char[] arr = temp.toCharArray();
+                Double drob = result-result.intValue();
+                Double drobMain = drob;
+                int counter = 0;
+                while (drob!=0){
+                    drob*=10;
+                    drob = drob - drob.intValue();
+                    counter++;
+                }
+                drobMain*=Math.pow(10,counter);
+                    if (drobMain ==Math.pow((int)Math.sqrt(drobMain), 2))
+                    {
+                        resultBoolean = true;
+                    } else return false;
 
-                if (( arr[0] == '-' && arr[1] == '0'))
-                {
-                    resultBoolean = false;
-                } else if((arr[0])==Math.pow(Math.sqrt(arr[0]), 2))
-                {
-                    resultBoolean = true;
-                } else return false;
                 return resultBoolean;
             }
         }
@@ -80,7 +84,7 @@ public class GornerTableModel extends AbstractTableModel {
                 return "Значение многочлена";
             default:
 // Название 3-го столбца
-                return "Является ли полным квадратом?";
+                return "Является ли дробная часть полным квадратом?";
         }
     }
     public Class<?> getColumnClass(int col) {
