@@ -51,26 +51,25 @@ public class GornerTableModel extends AbstractTableModel {
             } else {
 // 3-й столбец
                 result = coefficients[0];
-                Boolean resultBoolean;
                 for (int i = 0; i < coefficients.length - 1; i++)
                 {
                     result = result * x + coefficients[i + 1];
                 }
                 Double drob = result-result.intValue();
-                Double drobMain = drob;
-                int counter = 0;
-                while (drob!=0){
+                Double drobMain =(double)Math.round(drob * 100) / 100;
+                Double E = Math.pow (10,-6);
+                int counter = 0; int prov = 0;
+                while (drob>E){
                     drob*=10;
                     drob = drob - drob.intValue();
                     counter++;
                 }
                 drobMain*=Math.pow(10,counter);
-                    if (drobMain ==Math.pow((int)Math.sqrt(drobMain), 2))
+                if (Math.abs(Math.sqrt(drobMain) - ((Double)Math.sqrt(drobMain)).intValue())<E)
                     {
-                        resultBoolean = true;
-                    } else return false;
-
-                return resultBoolean;
+                        prov++;
+                        return true;
+                    }else return false;
             }
         }
     }
