@@ -1,2 +1,2 @@
-# labi-
+# labi
 labaratornii raboti
